@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Word 字体样式统一工具</title>
+    <link rel="stylesheet" href="word.css">
+</head>
+<body>
+
+<!-- ========== 顶部导航栏 ========== -->
+<div class="top-nav">
+    <div class="nav-menu">
+        <a class="nav-item active" data-target="style-panel" href="#">样式设置</a>
+        <a class="nav-item" data-target="history-panel" href="#">历史文件</a>
+    </div>
+    <div class="user-area">
+        <div class="user-info" id="loginBtn">
+            <div class="user-avatar">登录</div>
+        </div>
+    </div>
+</div>
+
+<!-- ========== 主内容 ========== -->
+<div class="main-container">
+    <div class="content">
+        <!-- 样式设置面板 -->
+        <div id="style-panel" class="panel active" style="display: block;">
+            <div class="style-container">
+                <div class="section">
+                    <h3>正文样式</h3>
+                    <div class="row">
+                        <label>中文字体</label>
+                        <select class="font_cn_content">
+                            <option>宋体</option>
+                            <option>黑体</option>
+                            <option>仿宋_GB2312</option>
+                            <option>楷体</option>
+                        </select>
+                    </div>
+                    <div class="row">
+                        <label>英文字体</label>
+                        <select class="font_en_content">
+                            <option>Times New Roman</option>
+                            <option>Arial</option>
+                            <option>Calibri</option>
+                        </select>
+                    </div>
+                    <div class="row">
+                        <label>字号</label>
+                        <input type="number" class="size_content" value="12">
+                    </div>
+                    <div class="row">
+                        <label>行距</label>
+                        <input type="number" step="0.1" class="line_content" value="1.5">
+                    </div>
+                    <div class="row">
+                        <label>首行缩进(字符)</label>
+                        <input type="number" step="0.5" class="indent_firstline" value="2">
+                    </div>
+                    <div class="row">
+                        <label>段前间距(pt)</label>
+                        <input type="number" step="0.5" class="space_before" value="0">
+                    </div>
+                    <div class="row">
+                        <label>段后间距(pt)</label>
+                        <input type="number" step="0.5" class="space_after" value="0">
+                    </div>
+                    <div class="row">
+                        <label>对齐方式</label>
+                        <select class="align_content">
+                            <option value="both">两端对齐</option>
+                            <option value="left">左对齐</option>
+                            <option value="center">居中</option>
+                            <option value="right">右对齐</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>一级标题样式</h3>
+                    <div class="row">
+                        <label>中文字体</label>
+                        <select class="font_cn_h1">
+                            <option>宋体</option>
+                            <option>黑体</option>
+                            <option>仿宋_GB2312</option>
+                            <option>楷体</option>
+                        </select>
+                    </div>
+                    <div class="row">
+                        <label>英文字体</label>
+                        <select class="font_en_h1">
+                            <option>Times New Roman</option>
+                            <option>Arial</option>
+                            <option>Calibri</option>
+                        </select>
+                    </div>
+                    <div class="row">
+                        <label>字号</label>
+                        <input type="number" class="size_h1" value="28">
+                    </div>
+                    <div class="row">
+                        <label>是否加粗</label>
+                        <select class="bold_h1">
+                            <option>否</option>
+                            <option>是</option>
+                        </select>
+                    </div>
+                    <div class="row">
+                        <label>首行缩进(字符)</label>
+                        <input type="number" step="0.5" class="indent_h1" value="0">
+                    </div>
+                    <div class="row">
+                        <label>段前间距(pt)</label>
+                        <input type="number" step="0.5" class="space_before_h1" value="0">
+                    </div>
+                    <div class="row">
+                        <label>段后间距(pt)</label>
+                        <input type="number" step="0.5" class="space_after_h1" value="0">
+                    </div>
+                    <div class="row">
+                        <label>对齐方式</label>
+                        <select class="align_h1">
+                            <option value="left">左对齐</option>
+                            <option value="both">两端对齐</option>
+                            <option value="center">居中</option>
+                            <option value="right">右对齐</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>二级标题样式</h3>
+                    <div class="row">
+                        <label>中文字体</label>
+                        <select class="font_cn_h2">
+                            <option>宋体</option>
+                            <option>黑体</option>
+                            <option>仿宋_GB2312</option>
+                            <option>楷体</option>
+                        </select>
+                    </div>
+                    <div class="row">
+                        <label>英文字体</label>
+                        <select class="font_en_h2">
+                            <option>Times New Roman</option>
+                            <option>Arial</option>
+                            <option>Calibri</option>
+                        </select>
+                    </div>
+                    <div class="row">
+                        <label>字号</label>
+                        <input type="number" class="size_h2" value="24">
+                    </div>
+                    <div class="row">
+                        <label>是否加粗</label>
+                        <select class="bold_h2">
+                            <option>否</option>
+                            <option>是</option>
+                        </select>
+                    </div>
+                    <div class="row">
+                        <label>首行缩进(字符)</label>
+                        <input type="number" step="0.5" class="indent_h2" value="0">
+                    </div>
+                    <div class="row">
+                        <label>段前间距(pt)</label>
+                        <input type="number" step="0.5" class="space_before_h2" value="0">
+                    </div>
+                    <div class="row">
+                        <label>段后间距(pt)</label>
+                        <input type="number" step="0.5" class="space_after_h2" value="0">
+                    </div>
+                    <div class="row">
+                        <label>对齐方式</label>
+                        <select class="align_h2">
+                            <option value="left">左对齐</option>
+                            <option value="both">两端对齐</option>
+                            <option value="center">居中</option>
+                            <option value="right">右对齐</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>三级标题样式</h3>
+                    <div class="row">
+                        <label>中文字体</label>
+                        <select class="font_cn_h3">
+                            <option>宋体</option>
+                            <option>黑体</option>
+                            <option>仿宋_GB2312</option>
+                            <option>楷体</option>
+                        </select>
+                    </div>
+                    <div class="row">
+                        <label>英文字体</label>
+                        <select class="font_en_h3">
+                            <option>Times New Roman</option>
+                            <option>Arial</option>
+                            <option>Calibri</option>
+                        </select>
+                    </div>
+                    <div class="row">
+                        <label>字号</label>
+                        <input type="number" class="size_h3" value="20">
+                    </div>
+                    <div class="row">
+                        <label>是否加粗</label>
+                        <select class="bold_h3">
+                            <option>否</option>
+                            <option>是</option>
+                        </select>
+                    </div>
+                    <div class="row">
+                        <label>首行缩进(字符)</label>
+                        <input type="number" step="0.5" class="indent_h3" value="0">
+                    </div>
+                    <div class="row">
+                        <label>段前间距(pt)</label>
+                        <input type="number" step="0.5" class="space_before_h3" value="0">
+                    </div>
+                    <div class="row">
+                        <label>段后间距(pt)</label>
+                        <input type="number" step="0.5" class="space_after_h3" value="0">
+                    </div>
+                    <div class="row">
+                        <label>对齐方式</label>
+                        <select class="align_h3">
+                            <option value="left">左对齐</option>
+                            <option value="both">两端对齐</option>
+                            <option value="center">居中</option>
+                            <option value="right">右对齐</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 历史文件面板 -->
+        <div id="history-panel" class="panel" style="display:none;">
+            <div id="historyList">
+                <div style="color:#888;text-align:center;padding:20px;">暂无历史记录</div>
+            </div>
+        </div>
+
+        <!-- 文件上传与处理 -->
+        <button class="btn btn-green" id="selectFile">选择 Word 文件 (.docx)</button>
+        <div class="tips">仅支持 .docx，文件在本地 AI 处理</div>
+        <div class="backend-status checking" id="backendStatus">正在检查本地后端连接...</div>
+        <button class="btn" id="startProcess">开始 AI 统一格式并生成文件</button>
+        <div class="progress-panel" id="progressPanel">
+            <div class="progress-head">
+                <span id="progressTitle">等待处理</span>
+                <span id="progressPercent">0%</span>
+            </div>
+            <div class="progress-track">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+            <div class="progress-message" id="progressMessage">提交任务后会显示本地模型处理进度。</div>
+            <div class="progress-log" id="progressLog"></div>
+        </div>
+        <div class="result" id="resultBox">
+            <div class="result-content">
+                <h4>处理完成！</h4>
+                <a id="downloadLink" download class="download-link">点击下载处理后的 Word</a>
+            </div>
+        </div>
+
+        <!-- 字号对照表 - 仅在样式设置面板显示 -->
+        <div id="style-chart" class="panel active" style="width: 100%; max-width: 800px; margin: 0 auto;">
+            <div class="font-size-chart">
+                <h3>字号对照表</h3>
+                <table class="chart-table">
+                    <thead>
+                        <tr>
+                            <th>字号</th>
+                            <th>磅值</th>
+                            <th>像素(px)</th>
+                            <th>说明</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>初号</td>
+                            <td>42磅</td>
+                            <td>56px</td>
+                            <td>最大的字号</td>
+                        </tr>
+                        <tr>
+                            <td>小初</td>
+                            <td>36磅</td>
+                            <td>48px</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>一号</td>
+                            <td>26磅</td>
+                            <td>35px</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>小一</td>
+                            <td>24磅</td>
+                            <td>32px</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>二号</td>
+                            <td>22磅</td>
+                            <td>29px</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>小二</td>
+                            <td>18磅</td>
+                            <td>24px</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>三号</td>
+                            <td>16磅</td>
+                            <td>21px</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>小三</td>
+                            <td>15磅</td>
+                            <td>20px</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>四号</td>
+                            <td>14磅</td>
+                            <td>19px</td>
+                            <td>常用标准字号</td>
+                        </tr>
+                        <tr>
+                            <td>小四</td>
+                            <td>12磅</td>
+                            <td>16px</td>
+                            <td>文档正文字号</td>
+                        </tr>
+                        <tr>
+                            <td>五号</td>
+                            <td>10.5磅</td>
+                            <td>14px</td>
+                            <td>常用正文字号</td>
+                        </tr>
+                        <tr>
+                            <td>小五</td>
+                            <td>9磅</td>
+                            <td>12px</td>
+                            <td>注释、脚注字号</td>
+                        </tr>
+                        <tr>
+                            <td>六号</td>
+                            <td>7.5磅</td>
+                            <td>10px</td>
+                            <td>较小的字号</td>
+                        </tr>
+                        <tr>
+                            <td>小六</td>
+                            <td>6.5磅</td>
+                            <td>9px</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>七号</td>
+                            <td>5.5磅</td>
+                            <td>7px</td>
+                            <td>很小的字号</td>
+                        </tr>
+                        <tr>
+                            <td>八号</td>
+                            <td>5磅</td>
+                            <td>7px</td>
+                            <td>最小的字号</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ========== 登录弹窗 ========== -->
+<div class="login-modal" id="loginModal">
+    <div class="login-box">
+        <div class="login-header">
+            <h2>用户登录</h2>
+            <button class="close-btn" id="closeLogin">×</button>
+        </div>
+        <div class="login-row">
+            <input type="text" id="username" placeholder="用户名">
+        </div>
+        <div class="login-row">
+            <div class="password-container">
+                <input type="password" id="password" placeholder="密码">
+                <button type="button" class="toggle-password" id="togglePassword">显示</button>
+            </div>
+        </div>
+        <button class="login-btn" id="submitLogin">登录</button>
+    </div>
+</div>
+
+<script src="word.js"></script>
+
+</body>
+</html>
