@@ -108,5 +108,3 @@ python -B server.py
 - **端口被占用**：修改对应 `server.py` 中的 `PORT`（并确保前端通过同一源访问，或直接打开后端提供的首页以使用相对路径）。
 - **`Web/` 一直提示 Ollama 不可用**：确认 Ollama 已启动、`OLLAMA_MODEL` 已通过 `ollama pull` 拉取、且 `OLLAMA_BASE_URL` 正确。
 - **`Web（fast）/` 提示 DeepSeek 不可用**：检查 API Key、网络与 `deepseek_config.json` / 环境变量是否一致。
-
->## 持续更新中......
